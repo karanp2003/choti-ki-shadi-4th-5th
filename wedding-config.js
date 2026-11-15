@@ -1,0 +1,200 @@
+/**
+ * ====================================================================
+ * BLUSH & GOLD WEDDING INVITATION CONFIGURATION
+ * ====================================================================
+ * Customised for: Antima Gupta & Saksham Mathur
+ * Theme: Blush & Gold (InviteVibes)
+ */
+
+window.WEDDING_CONFIG = {
+  // Public link + WhatsApp preview (og:image is /og-share.jpg at your Vercel URL)
+  share: {
+    ogTitle: "Wedding Invitation — Antima & Saksham",
+    sharePhoto: "share-source.jpg",
+    ogDescription:
+      "With love and blessings, you're invited to celebrate our wedding on 4 & 5 December 2026. Tap to open your invitation.",
+    ogImagePath: "/og-share-square.jpg",
+    whatsappText:
+      "With love and blessings, join us as we celebrate the wedding of Antima Gupta & Saksham Mathur on 4 & 5 December 2026!",
+    // Share this URL (not only the homepage) so WhatsApp fetches a fresh preview
+    ogImageUrl: "https://antima-saksham.vercel.app/og-wa.jpg",
+  },
+
+  // Theme styling
+  theme: {
+    name: "modern-bliss",
+    primaryColor: "#9E4D56",      // Burgundy / terracotta (envelope)
+    accentColor: "#B8956A",       // Antique gold
+    headingFont: "Alex Brush",
+    nameFont: "Alex Brush",
+    bodyFont: "Cormorant Garamond",
+    petalsEnabled: true,
+    petalIntensity: 0.4,
+  },
+
+  // Wedding background song
+  audio: {
+    enabled: true,
+    title: "Leja — Lost Stories",
+    src: "leja-lost-stories.mp3",
+  },
+
+  // Modern Bliss entry gate (red terracotta envelope — same video as invitevibes.in Modern Bliss)
+  entry: {
+    enabled: true,
+    variantType: "type2",
+    overlayStyle: "light",
+    tapHintTopPercent: 48,
+    entryVariantId: "entry-video-envelope-10",
+    videoUrl:
+      "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/website%20assets/New%20Envelope/1%20(10).mp4",
+    message: "With love and blessings,\nwe invite you to the wedding of\nAntima & Saksham",
+    tapHint: "Tap to Open",
+    loaderNames: "Antima & Saksham",
+  },
+
+  // Hero Section
+  hero: {
+    ganeshImageUrl: "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/website%20assets/godsymbols/1.webp",
+    godQuote: "|| Shree Ganeshay Namah ||",
+    introLine: "Together with their families, cordially invite you to celebrate the wedding of",
+    connector: "with",
+    bride: {
+      name: "Antima Gupta",
+      familyLine: "Beloved Daughter of Gupta Family",
+    },
+    groom: {
+      name: "Saksham Mathur",
+      familyLine: "Beloved Son of Mathur Family",
+    },
+    weddingDateText: "Saturday · 5th December 2026",
+    weddingLocationText: "Royal Palace · Jaipur / Delhi",
+  },
+
+  // Live Countdown & Save the Date
+  countdown: {
+    heading: "Forever Begins In",
+    targetDate: "2026-12-05T13:00:00", // 5th December 2026, 1:00 PM
+  },
+
+  // Welcome Note
+  welcome: {
+    heading: "Dear Friends and Family,",
+    message: "As we embark on this beautiful new chapter of our lives, we seek your warmest love and blessings. Your presence will make our celebrations truly unforgettable.",
+  },
+
+  // Romantic Moments / Our Story
+  story: {
+    subheading: "Our Story",
+    heading: "Forever Us",
+    items: [
+      {
+        image: "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Demo/download%20(2).jfif",
+        caption: "Where It Began",
+        text: "From casual conversations to laughter that never ended, our journey quietly began.",
+      },
+      {
+        image: "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Demo/download%20(3).jfif",
+        caption: "Joy & Togetherness",
+        text: "Every single day with you is a celebration of love, friendship, and joy.",
+      },
+      {
+        image: "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Demo/%F0%9F%91%A5%F0%9F%92%97.jfif",
+        caption: "Our Forever Begins",
+        text: "Surrounded by our families, prayers, and pure love, two souls unite for eternity.",
+      },
+      {
+        image: "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Demo/%F0%9F%92%96.jfif",
+        caption: "Written In The Stars",
+        text: "Two hearts, one lifelong promise. Forever starts right here, right now.",
+      },
+    ],
+  },
+
+  // Modern Bliss–style sacred ceremonies (3 days — same card UI as reference)
+  events: {
+    subheading: "The Celebration Unfolds",
+    heading: "Three Sacred\nCeremonies",
+    intro: "Three joyful celebrations uniting two loving souls and families.",
+    // Bake background + invite text into one canvas “video” per card (set false to use HTML overlay only)
+    compositeVideoCards: true,
+    items: [
+      {
+        id: "haldi",
+        dayTitle: "Haldi",
+        cardTitle: "Haldi",
+        title: "Haldi Ceremony",
+        date: "Friday · 04 December 2026",
+        inviteDate: { weekday: "Friday", day: "04", monthYear: "Dec 2026" },
+        time: "12:30 PM Onwards",
+        description:
+          "Auspicious yellow hues, fragrant turmeric, family giggles, and joyous beats followed by a lavish festive lunch.",
+        venue: "Fort Restaurant Jaipur",
+        mapsUrl:
+          "https://www.google.com/maps?udm&fvr=1&pvq=Cg0vZy8xMWY2MTVjM3pnIhEKC2ZvcnQgamFpcHVyEAIYAw&lqi=Chlmb3J0IGphaXB1ciBtYWx2aXlhIG5hZ2FySM6f1pKYrYCACFolEAAQARgAGAEYAyIZZm9ydCBqYWlwdXIgbWFsdml5YSBuYWdhcpIBF25vcnRoX2luZGlhbl9yZXN0YXVyYW50&vet=10CAAQoqAOahcKEwjoiaHHuImYAxUAAAAAHQAAAAAQCQ..i&cs=0&um=1&ie=UTF-8&fb=1&gl=in&sa=X&ftid=0x396db5e8554f72ff:0x3610605e03ef562",
+        video:
+          "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/website%20assets/events-optimized/haldi/1.mp4",
+        inviteStyle: "light",
+      },
+      {
+        id: "sangeet",
+        dayTitle: "Sangeet Night",
+        cardTitle: "Sangeet",
+        title: "Sangeet & Musical Night",
+        date: "Friday · 04 December 2026",
+        inviteDate: { weekday: "Friday", day: "04", monthYear: "Dec 2026" },
+        time: "7:30 PM Onwards",
+        description:
+          "An enchanting evening of dance, dhol beats, live music, and celebratory dinner under the stars.",
+        venue: "Fort Restaurant Jaipur",
+        mapsUrl:
+          "https://www.google.com/maps?udm&fvr=1&pvq=Cg0vZy8xMWY2MTVjM3pnIhEKC2ZvcnQgamFpcHVyEAIYAw&lqi=Chlmb3J0IGphaXB1ciBtYWx2aXlhIG5hZ2FySM6f1pKYrYCACFolEAAQARgAGAEYAyIZZm9ydCBqYWlwdXIgbWFsdml5YSBuYWdhcpIBF25vcnRoX2luZGlhbl9yZXN0YXVyYW50&vet=10CAAQoqAOahcKEwjoiaHHuImYAxUAAAAAHQAAAAAQCQ..i&cs=0&um=1&ie=UTF-8&fb=1&gl=in&sa=X&ftid=0x396db5e8554f72ff:0x3610605e03ef562",
+        video:
+          "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/website%20assets/events-optimized/sangeet/1.mp4",
+        inviteStyle: "dark",
+      },
+      {
+        id: "wedding",
+        dayTitle: "The Sacred Union",
+        cardTitle: "Wedding",
+        title: "Wedding Ceremony",
+        date: "Saturday · 05 December 2026",
+        inviteDate: { weekday: "Saturday", day: "05", monthYear: "Dec 2026" },
+        time: "1 PM Onwards",
+        description:
+          "The auspicious Baraat, Varmala, and seven sacred pheras around the holy fire, followed by a Royal Wedding Feast.",
+        venue: "Saryu Mahal Jagatpura Jaipur",
+        mapsUrl:
+          "https://www.google.com/maps/place/SARYU+MAHAL/data=!4m2!3m1!1s0x0:0xfb42f68b71525903?sa=X&ved=1t:2428&ictx=111",
+        video:
+          "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/website%20assets/events-optimized/wedding/1.mp4",
+        inviteStyle: "arch",
+        highlighted: true,
+      },
+    ],
+  },
+
+  // Venue & Location
+  venue: {
+    subheading: "Where We Gather",
+    heading: "The Royal Venue",
+    name: "Royal Heritage Palace & Resorts",
+    address: "Palace Road, Near Heritage Garden, Jaipur, Rajasthan",
+    image: "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Balapriya%20%26%5C/ChatGPT%20Image%20May%2030%2C%202026%2C%2009_57_15%20AM.png",
+    mapsUrl: "https://maps.google.com/?q=Jaipur",
+    buttonLabel: "View on Google Maps",
+  },
+
+
+
+  // Footer & Blessings
+  footer: {
+    message: "Your gracious presence will turn our special day into a celebration of love, laughter, and lifelong memories.",
+    regards: "With heartfelt gratitude & blessings,",
+    familyLine: "Gupta & Mathur Families",
+    contacts: [
+      { name: "Gupta Family Coordinator", phone: "+91 98765 43210" },
+      { name: "Mathur Family Coordinator", phone: "+91 98765 43211" },
+    ],
+  },
+};
