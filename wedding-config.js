@@ -16,9 +16,9 @@ window.WEDDING_CONFIG = {
     ogImagePath: "/og-share.jpg",
     whatsappText:
       "With love and blessings, join us as we celebrate the wedding of Antima Patodiya & Saksham Mathur on 5 December 2026!",
-    productionUrl: "https://antima-saksham.vercel.app/",
+    productionUrl: "https://choti-ki-shadi.vercel.app/",
     // Public OG Image URL for link preview
-    ogImageUrl: "https://antima-saksham.vercel.app/og-share.jpg",
+    ogImageUrl: "https://choti-ki-shadi.vercel.app/og-share.jpg",
   },
 
   // Theme styling

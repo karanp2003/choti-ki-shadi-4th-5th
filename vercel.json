@@ -10,8 +10,8 @@
   },
   "build": {
     "env": {
-      "SITE_URL": "https://antima-saksham.vercel.app",
-      "OG_VERSION": "8"
+      "SITE_URL": "https://choti-ki-shadi.vercel.app",
+      "OG_VERSION": "9"
     }
   },
   "headers": [

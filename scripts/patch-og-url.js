@@ -17,7 +17,9 @@ function normalizeSiteUrl(raw) {
 
 const siteUrl =
   normalizeSiteUrl(process.env.SITE_URL) ||
-  "https://antima-saksham.vercel.app";
+  normalizeSiteUrl(process.env.VERCEL_PROJECT_PRODUCTION_URL) ||
+  normalizeSiteUrl(process.env.VERCEL_URL) ||
+  "https://choti-ki-shadi.vercel.app";
 
 let configuredImage = normalizeSiteUrl(process.env.OG_IMAGE_URL);
 if (!configuredImage) {
@@ -25,7 +27,9 @@ if (!configuredImage) {
     const cfgPath = path.join(root, "wedding-config.js");
     const cfgText = fs.readFileSync(cfgPath, "utf8");
     const m = cfgText.match(/ogImageUrl:\s*"([^"]+)"/);
-    if (m && m[1].trim()) configuredImage = normalizeSiteUrl(m[1]);
+    if (m && m[1].trim() && !m[1].includes("__")) {
+      configuredImage = normalizeSiteUrl(m[1]);
+    }
   } catch {
     /* optional */
   }
