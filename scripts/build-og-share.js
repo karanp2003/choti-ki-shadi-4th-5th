@@ -25,7 +25,7 @@ if (!fs.existsSync(sourcePath)) {
 }
 
 const title = "Wedding Invitation";
-const subtitle = "Antima & Saksham  ·  4 & 5 December 2026";
+const subtitle = "Antima & Saksham  ·  5 December 2026";
 
 const overlaySvg = `
 <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">

@@ -1052,14 +1052,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const shareBtn = document.getElementById("share-btn");
   if (shareBtn) {
     shareBtn.addEventListener("click", () => {
-      const bride = config.hero?.bride?.name || "Antima Gupta";
+      const bride = config.hero?.bride?.name || "Antima Patodiya";
       const groom = config.hero?.groom?.name || "Saksham Mathur";
       const shareCfg = config.share || {};
       const shareText =
         shareCfg.whatsappText ||
-        `With love and blessings, join us as we celebrate the wedding of ${bride} & ${groom} on 4 & 5 December 2026!`;
+        `With love and blessings, join us as we celebrate the wedding of ${bride} & ${groom} on 5 December 2026!`;
 
       const shareUrl = (() => {
+        const isLocal =
+          !window.location.hostname ||
+          window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1" ||
+          window.location.protocol === "file:";
+        if (isLocal) {
+          return shareCfg.productionUrl || "https://antima-saksham.vercel.app/";
+        }
         const u = new URL(window.location.href);
         u.search = "";
         u.hash = "";

@@ -5,7 +5,7 @@
   "framework": null,
   "functions": {
     "api/og-image.js": {
-      "includeFiles": "og-wa.jpg,og-share-square.jpg,og-share.jpg"
+      "includeFiles": "og-share.jpg,og-share-square.jpg,og-wa.jpg,share-source.jpg"
     }
   },
   "build": {
@@ -16,7 +16,7 @@
   },
   "headers": [
     {
-      "source": "/(og-wa|og-share|og-share-square)\\.jpg",
+      "source": "/(og-wa|og-share|og-share-square|share-source)\\.jpg",
       "headers": [
         { "key": "Content-Type", "value": "image/jpeg" },
         { "key": "Cache-Control", "value": "public, max-age=3600" },

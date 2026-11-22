@@ -4,7 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const CANDIDATES = ["og-wa.jpg", "og-share-square.jpg", "og-share.jpg"];
+const CANDIDATES = ["og-share.jpg", "og-share-square.jpg", "og-wa.jpg", "share-source.jpg"];
 const ROOT = path.join(__dirname, "..");
 
 module.exports = (req, res) => {
