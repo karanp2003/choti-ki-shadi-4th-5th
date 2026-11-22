@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         entryGate.style.display = "none";
         document.body.classList.remove("gate-locked");
+        window.scrollTo(0, 0);
         if (mainContent) {
           mainContent.classList.add("visible");
         }
