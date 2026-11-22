@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isEnvelopeFinished) {
           finishEnvelope();
         }
-      }, 3500);
+      }, 9000);
     } else {
       finishEnvelope();
     }
@@ -312,34 +312,22 @@ document.addEventListener("DOMContentLoaded", () => {
       entryGateMessage.style.fontFamily = "'Satisfy', cursive";
     }
 
+    entryVideo.src = entryVideoUrl;
+    entryVideo.load();
+
     const onVideoReady = () => {
       markEntryReady();
     };
 
-    entryVideo.addEventListener("loadedmetadata", onVideoReady, { once: true });
     entryVideo.addEventListener("loadeddata", onVideoReady, { once: true });
     entryVideo.addEventListener("canplay", onVideoReady, { once: true });
-    entryVideo.addEventListener("error", () => {
-      if (!entryVideo.src.endsWith("envelope_video.mp4")) {
-        entryVideo.src = "envelope_video.mp4";
-        entryVideo.load();
-      }
-      markEntryReady();
-    }, { once: true });
-
-    entryVideo.src = entryVideoUrl;
-    entryVideo.load();
-
-    if (entryVideo.readyState >= 1) {
-      markEntryReady();
-    }
 
     let gatePressStart = null;
 
     entryGate.addEventListener(
       "pointerdown",
       (e) => {
-        if (isEnvelopeOpening) return;
+        if (!isEntryReady || isEnvelopeOpening) return;
         gatePressStart = { x: e.clientX, y: e.clientY, pointerId: e.pointerId };
       },
       { passive: true }
@@ -350,10 +338,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     entryGate.addEventListener("click", (e) => {
-      if (isEnvelopeOpening) return;
+      if (!isEntryReady || isEnvelopeOpening) return;
 
-      if (!isEntryReady) {
-        markEntryReady();
+      if (gatePressStart && e.pointerId != null && gatePressStart.pointerId === e.pointerId) {
+        const dx = e.clientX - gatePressStart.x;
+        const dy = e.clientY - gatePressStart.y;
+        gatePressStart = null;
+        if (Math.hypot(dx, dy) > 16) {
+          return;
+        }
+      } else if (gatePressStart) {
+        const dx = e.clientX - gatePressStart.x;
+        const dy = e.clientY - gatePressStart.y;
+        gatePressStart = null;
+        if (Math.hypot(dx, dy) > 16) {
+          return;
+        }
       }
 
       startOpenEnvelope();
@@ -361,9 +361,6 @@ document.addEventListener("DOMContentLoaded", () => {
     entryGate.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        if (!isEntryReady) {
-          markEntryReady();
-        }
         startOpenEnvelope();
       }
     });
@@ -372,7 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isEntryReady) {
         markEntryReady();
       }
-    }, 1200);
+    }, 12000);
   }
 
   initEntryGate();
@@ -1091,34 +1088,20 @@ document.addEventListener("DOMContentLoaded", () => {
         return u.toString();
       })();
 
-      const fullMessage = `${shareText} ${shareUrl}`;
-      const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(fullMessage)}`;
-
-      const isIOS =
-        /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-
-      if (isIOS) {
-        window.location.href = waUrl;
-        return;
-      }
+      const shareData = {
+        title: shareCfg.ogTitle || `${bride} & ${groom} — Wedding Invitation`,
+        text: shareText,
+        url: shareUrl,
+      };
 
       if (navigator.share) {
-        try {
-          await navigator.share({
-            title: shareCfg.ogTitle || `${bride} & ${groom} — Wedding Invitation`,
-            text: shareText,
-            url: shareUrl,
-          });
-          return;
-        } catch (err) {
-          if (err && err.name === "AbortError") {
-            return;
-          }
-        }
+        navigator.share(shareData).catch(() => {});
+      } else {
+        const clipboardText = `${shareText}\n\n${shareUrl}`;
+        navigator.clipboard.writeText(clipboardText).then(() => {
+          alert("Wedding invitation message copied — paste in WhatsApp!");
+        });
       }
-
-      window.open(waUrl, "_blank", "noopener,noreferrer");
     });
   }
 });

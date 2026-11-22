@@ -17,7 +17,7 @@ const sourcePath = path.join(root, "share-source.jpg");
 const outPath = path.join(root, "og-share.jpg");
 const outSquarePath = path.join(root, "og-share-square.jpg");
 const outWaPath = path.join(root, "og-wa.jpg");
-const version = process.env.OG_VERSION || "12";
+const version = process.env.OG_VERSION || "11";
 
 if (!fs.existsSync(sourcePath)) {
   console.warn("share-source.jpg missing — skipping OG image build.");
@@ -69,30 +69,20 @@ async function build() {
   await sharp(sourcePath)
     .resize(1200, 630, { fit: "cover", position: "centre" })
     .composite([{ input: Buffer.from(overlaySvg), top: 0, left: 0 }])
-    .jpeg({ quality: 84, progressive: false, mozjpeg: false })
+    .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: "4:4:4" })
     .toFile(outPath);
 
   await sharp(sourcePath)
     .resize(1200, 1200, { fit: "cover", position: "centre" })
     .composite([{ input: Buffer.from(squareOverlaySvg), top: 0, left: 0 }])
-    .jpeg({ quality: 84, progressive: false, mozjpeg: false })
+    .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: "4:4:4" })
     .toFile(outSquarePath);
 
   await sharp(sourcePath)
     .resize(800, 800, { fit: "cover", position: "centre" })
     .composite([{ input: Buffer.from(waOverlaySvg), top: 0, left: 0 }])
-    .jpeg({ quality: 82, progressive: false, mozjpeg: false })
+    .jpeg({ quality: 80, mozjpeg: true })
     .toFile(outWaPath);
-
-  await sharp(outSquarePath)
-    .resize(180, 180)
-    .png()
-    .toFile(path.join(root, "apple-touch-icon.png"));
-
-  await sharp(outSquarePath)
-    .resize(32, 32)
-    .png()
-    .toFile(path.join(root, "favicon.png"));
 
   const meta = await sharp(outWaPath).metadata();
   const waStat = fs.statSync(outWaPath);

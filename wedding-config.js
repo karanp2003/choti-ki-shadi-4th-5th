@@ -47,7 +47,8 @@ window.WEDDING_CONFIG = {
     overlayStyle: "light",
     tapHintTopPercent: 48,
     entryVariantId: "entry-video-envelope-10",
-    videoUrl: "envelope_video.mp4",
+    videoUrl:
+      "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/website%20assets/New%20Envelope/1%20(10).mp4",
     message: "With love and blessings,\nwe invite you to the wedding of\nAntima & Saksham",
     tapHint: "Tap to Open",
     loaderNames: "Antima & Saksham",
@@ -125,7 +126,7 @@ window.WEDDING_CONFIG = {
     heading: "The Wedding\nCeremony",
     intro: "Join us as two loving souls unite in holy matrimony surrounded by family and blessings.",
     // Bake background + invite text into one canvas “video” per card (set false to use HTML overlay only)
-    compositeVideoCards: false,
+    compositeVideoCards: true,
     items: [
       {
         id: "wedding",
