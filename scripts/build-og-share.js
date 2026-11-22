@@ -13,12 +13,11 @@ try {
 }
 
 const root = path.join(__dirname, "..");
-const candidate = path.join(root, "couple-4.jpg");
-const sourcePath = fs.existsSync(candidate) ? candidate : path.join(root, "share-source.jpg");
+const sourcePath = path.join(root, "share-source.jpg");
 const outPath = path.join(root, "og-share.jpg");
 const outSquarePath = path.join(root, "og-share-square.jpg");
 const outWaPath = path.join(root, "og-wa.jpg");
-const version = process.env.OG_VERSION || "10";
+const version = process.env.OG_VERSION || "11";
 
 if (!fs.existsSync(sourcePath)) {
   console.warn("share-source.jpg missing — skipping OG image build.");
@@ -68,19 +67,19 @@ const waOverlaySvg = `
 
 async function build() {
   await sharp(sourcePath)
-    .resize(1200, 630, { fit: "cover", position: "top" })
+    .resize(1200, 630, { fit: "cover", position: "centre" })
     .composite([{ input: Buffer.from(overlaySvg), top: 0, left: 0 }])
     .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: "4:4:4" })
     .toFile(outPath);
 
   await sharp(sourcePath)
-    .resize(1200, 1200, { fit: "cover", position: "top" })
+    .resize(1200, 1200, { fit: "cover", position: "centre" })
     .composite([{ input: Buffer.from(squareOverlaySvg), top: 0, left: 0 }])
     .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: "4:4:4" })
     .toFile(outSquarePath);
 
   await sharp(sourcePath)
-    .resize(800, 800, { fit: "cover", position: "top" })
+    .resize(800, 800, { fit: "cover", position: "centre" })
     .composite([{ input: Buffer.from(waOverlaySvg), top: 0, left: 0 }])
     .jpeg({ quality: 80, mozjpeg: true })
     .toFile(outWaPath);

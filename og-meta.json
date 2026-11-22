@@ -1,5 +1,5 @@
 {
-  "version": "10",
+  "version": "11",
   "landscape": {
     "path": "/og-share.jpg",
     "width": 1200,
@@ -15,6 +15,6 @@
     "file": "og-wa.jpg",
     "width": 800,
     "height": 800,
-    "bytes": 83375
+    "bytes": 63028
   }
 }

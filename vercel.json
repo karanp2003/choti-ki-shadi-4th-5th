@@ -11,7 +11,7 @@
   "build": {
     "env": {
       "SITE_URL": "https://antima-saksham-wedding.vercel.app",
-      "OG_VERSION": "10"
+      "OG_VERSION": "11"
     }
   },
   "headers": [

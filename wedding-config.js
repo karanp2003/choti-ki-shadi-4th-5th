@@ -2,7 +2,7 @@
  * ====================================================================
  * BLUSH & GOLD WEDDING INVITATION CONFIGURATION
  * ====================================================================
- * Customised for: Antima Patodiya & Saksham Mathur
+ * Customised for: Antima & Saksham Mathur
  * Theme: Blush & Gold (InviteVibes)
  */
 
@@ -15,7 +15,7 @@ window.WEDDING_CONFIG = {
       "With love and blessings, you're invited to celebrate our wedding on 5 December 2026. Tap to open your invitation.",
     ogImagePath: "/og-share.jpg",
     whatsappText:
-      "With love and blessings, join us as we celebrate the wedding of Antima Patodiya & Saksham Mathur on 5 December 2026!",
+      "With love and blessings, join us as we celebrate the wedding of Antima & Saksham Mathur on 5 December 2026!",
     productionUrl: "https://antima-saksham-wedding.vercel.app/",
     // Public OG Image URL for link preview
     ogImageUrl: "https://antima-saksham-wedding.vercel.app/og-share.jpg",

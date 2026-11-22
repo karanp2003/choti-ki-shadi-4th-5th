@@ -1066,7 +1066,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const shareBtn = document.getElementById("share-btn");
   if (shareBtn) {
     shareBtn.addEventListener("click", () => {
-      const bride = config.hero?.bride?.name || "Antima Patodiya";
+      const bride = config.hero?.bride?.name || "Antima";
       const groom = config.hero?.groom?.name || "Saksham Mathur";
       const shareCfg = config.share || {};
       const shareText =
