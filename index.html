@@ -219,7 +219,8 @@
       font-style: italic;
       letter-spacing: 0.12em;
       color: var(--gold);
-      margin: 0 0 0.18rem;
+      margin: 0 0 0.02rem;
+      line-height: 1.15;
     }
 
     .intro-text {
@@ -231,14 +232,18 @@
       line-height: 1.25;
     }
 
+    .god-quote + .intro-text {
+      margin-top: 0.02rem;
+    }
+
     .parents-name {
       font-family: 'Montserrat', sans-serif;
       font-style: italic;
       font-weight: 500;
       font-size: clamp(1.05rem, 3vw, 1.25rem);
-      line-height: 1.35;
+      line-height: 1.28;
       display: inline-block;
-      margin: 0.15rem 0;
+      margin: 0.15rem 0 0.03rem;
       letter-spacing: 0.03em;
       text-transform: none;
       background: linear-gradient(165deg, #c9a962 0%, #b8956a 50%, #9a7d4f 100%);
@@ -247,6 +252,10 @@
       color: transparent;
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 1px 4px rgba(184, 149, 106, 0.35));
+    }
+
+    .parents-name + .intro-text {
+      margin-top: 0.02rem;
     }
 
     .couple-name {
