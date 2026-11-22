@@ -1088,20 +1088,34 @@ document.addEventListener("DOMContentLoaded", () => {
         return u.toString();
       })();
 
-      const shareData = {
-        title: shareCfg.ogTitle || `${bride} & ${groom} — Wedding Invitation`,
-        text: shareText,
-        url: shareUrl,
-      };
+      const fullMessage = `${shareText} ${shareUrl}`;
+      const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(fullMessage)}`;
+
+      const isIOS =
+        /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+      if (isIOS) {
+        window.location.href = waUrl;
+        return;
+      }
 
       if (navigator.share) {
-        navigator.share(shareData).catch(() => {});
-      } else {
-        const clipboardText = `${shareText}\n\n${shareUrl}`;
-        navigator.clipboard.writeText(clipboardText).then(() => {
-          alert("Wedding invitation message copied — paste in WhatsApp!");
-        });
+        try {
+          await navigator.share({
+            title: shareCfg.ogTitle || `${bride} & ${groom} — Wedding Invitation`,
+            text: shareText,
+            url: shareUrl,
+          });
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") {
+            return;
+          }
+        }
       }
+
+      window.open(waUrl, "_blank", "noopener,noreferrer");
     });
   }
 });

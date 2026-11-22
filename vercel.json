@@ -16,17 +16,55 @@
   },
   "headers": [
     {
-      "source": "/(og-wa|og-share|og-share-square|share-source)\\.jpg",
+      "source": "/og-share.jpg",
       "headers": [
         { "key": "Content-Type", "value": "image/jpeg" },
-        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=31536000, stale-while-revalidate" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Accept-Ranges", "value": "none" }
       ]
     },
     {
-      "source": "/",
-      "headers": [{ "key": "Accept-Ranges", "value": "none" }]
+      "source": "/og-wa.jpg",
+      "headers": [
+        { "key": "Content-Type", "value": "image/jpeg" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=31536000, stale-while-revalidate" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Accept-Ranges", "value": "none" }
+      ]
+    },
+    {
+      "source": "/og-share-square.jpg",
+      "headers": [
+        { "key": "Content-Type", "value": "image/jpeg" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=31536000, stale-while-revalidate" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Accept-Ranges", "value": "none" }
+      ]
+    },
+    {
+      "source": "/share-source.jpg",
+      "headers": [
+        { "key": "Content-Type", "value": "image/jpeg" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=31536000, stale-while-revalidate" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Accept-Ranges", "value": "none" }
+      ]
+    },
+    {
+      "source": "/(apple-touch-icon|favicon)\\.png",
+      "headers": [
+        { "key": "Content-Type", "value": "image/png" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=31536000, stale-while-revalidate" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Accept-Ranges", "value": "none" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Accept-Ranges", "value": "none" }
+      ]
     }
   ]
 }

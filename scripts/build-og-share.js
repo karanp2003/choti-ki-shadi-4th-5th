@@ -69,13 +69,13 @@ async function build() {
   await sharp(sourcePath)
     .resize(1200, 630, { fit: "cover", position: "centre" })
     .composite([{ input: Buffer.from(overlaySvg), top: 0, left: 0 }])
-    .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: "4:4:4" })
+    .jpeg({ quality: 82, mozjpeg: true })
     .toFile(outPath);
 
   await sharp(sourcePath)
     .resize(1200, 1200, { fit: "cover", position: "centre" })
     .composite([{ input: Buffer.from(squareOverlaySvg), top: 0, left: 0 }])
-    .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: "4:4:4" })
+    .jpeg({ quality: 82, mozjpeg: true })
     .toFile(outSquarePath);
 
   await sharp(sourcePath)
@@ -83,6 +83,16 @@ async function build() {
     .composite([{ input: Buffer.from(waOverlaySvg), top: 0, left: 0 }])
     .jpeg({ quality: 80, mozjpeg: true })
     .toFile(outWaPath);
+
+  await sharp(outSquarePath)
+    .resize(180, 180)
+    .png()
+    .toFile(path.join(root, "apple-touch-icon.png"));
+
+  await sharp(outSquarePath)
+    .resize(32, 32)
+    .png()
+    .toFile(path.join(root, "favicon.png"));
 
   const meta = await sharp(outWaPath).metadata();
   const waStat = fs.statSync(outWaPath);
