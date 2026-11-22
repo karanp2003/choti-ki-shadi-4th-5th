@@ -647,7 +647,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const venueMarkup = (() => {
           const v = item.venue || "";
-          const vTitle = item.venueTitle || (v.toLowerCase().includes("saryu mahal") ? "Saryu Mahal," : v);
+          const vTitle = item.venueTitle || (v.toLowerCase().includes("saryu mahal") ? "Saryu Mahal" : v);
           const vCity = item.venueSubtitle || (v.toLowerCase().includes("jagatpura") ? "Jagatpura, Jaipur" : "");
           if (vCity) {
             return `

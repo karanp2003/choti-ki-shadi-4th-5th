@@ -139,7 +139,7 @@ window.WEDDING_CONFIG = {
         description:
           "The auspicious Baraat, Varmala, and seven sacred pheras around the holy fire, followed by a Royal Wedding Feast.",
         venue: "Saryu Mahal, Jagatpura, Jaipur",
-        venueTitle: "Saryu Mahal,",
+        venueTitle: "Saryu Mahal",
         venueSubtitle: "Jagatpura, Jaipur",
         mapsUrl:
           "https://www.google.com/maps/place/SARYU+MAHAL/data=!4m2!3m1!1s0x0:0xfb42f68b71525903?sa=X&ved=1t:2428&ictx=111",
@@ -155,7 +155,7 @@ window.WEDDING_CONFIG = {
   venue: {
     subheading: "Where We Gather",
     heading: "The Venue",
-    name: "Saryu Mahal,",
+    name: "Saryu Mahal",
     address: "Jagatpura, Jaipur",
     image: "https://pub-1953a6673e864f3488c645252f75de98.r2.dev/may/Balapriya%20%26%5C/ChatGPT%20Image%20May%2030%2C%202026%2C%2009_57_15%20AM.png",
     mapsUrl: "https://maps.google.com/?q=Jaipur",
