@@ -19,7 +19,7 @@ const siteUrl =
   normalizeSiteUrl(process.env.SITE_URL) ||
   normalizeSiteUrl(process.env.VERCEL_PROJECT_PRODUCTION_URL) ||
   normalizeSiteUrl(process.env.VERCEL_URL) ||
-  "https://choti-ki-shadi.vercel.app";
+  "https://antima-saksham-wedding.vercel.app";
 
 let configuredImage = normalizeSiteUrl(process.env.OG_IMAGE_URL);
 if (!configuredImage) {

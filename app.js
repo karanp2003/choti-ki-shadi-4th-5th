@@ -1080,7 +1080,7 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.hostname === "127.0.0.1" ||
           window.location.protocol === "file:";
         if (isLocal) {
-          return shareCfg.productionUrl || "https://choti-ki-shadi.vercel.app/";
+          return shareCfg.productionUrl || "https://antima-saksham-wedding.vercel.app/";
         }
         const u = new URL(window.location.href);
         u.search = "";
