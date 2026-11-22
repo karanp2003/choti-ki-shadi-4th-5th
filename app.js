@@ -645,6 +645,20 @@ document.addEventListener("DOMContentLoaded", () => {
           </header>`
           : "";
 
+        const venueMarkup = (() => {
+          const v = item.venue || "";
+          const vTitle = item.venueTitle || (v.toLowerCase().includes("saryu mahal") ? "Saryu Mahal," : v);
+          const vCity = item.venueSubtitle || (v.toLowerCase().includes("jagatpura") ? "Jagatpura, Jaipur" : "");
+          if (vCity) {
+            return `
+              <div class="evt-venue-info">
+                <span class="evt-venue-title">${escapeHtml(vTitle)}</span>
+                <span class="evt-venue-city">${escapeHtml(vCity)}</span>
+              </div>`;
+          }
+          return `<span class="evt-venue-name">${escapeHtml(v)}</span>`;
+        })();
+
         return `
         <article class="event-block reveal${blockExtra}">
           ${dayHeader}
@@ -656,7 +670,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="evt-details">
             <span class="evt-tagline">${escapeHtml(item.description || "")}</span>
             <div class="evt-venue">
-              <span class="evt-venue-name">${escapeHtml(item.venue || "")}</span>
+              ${venueMarkup}
               <a href="${escapeHtml(item.mapsUrl || "#")}" target="_blank" rel="noopener" class="evt-dir-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 Directions
